@@ -6,6 +6,6 @@ class HomepageController < ApplicationController
   end
 
   def search
-    @biotch = params[:city]
+    @search_city = params[:city]
   end
 end

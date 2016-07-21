@@ -1,0 +1,5 @@
+Restaurants in <%= @search_city %>:
+
+<% @restaurants.each do |r| %>
+<%= r.name %>
+<% end %>

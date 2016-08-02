@@ -1,21 +1,23 @@
-    <div class="main-image">
-<div class="container-fluid">
-  <div class="row">
+<div class="main-image">
+  <div class="container-fluid">
+    <div class="row">
 
-      <h1 class="yo text-center">Know where your food comes from.</h1>
+      <h1 class="tagline text-center">Know where your food comes from.</h1>
+
       <h2>Find restaurants in: </h2>
-    <%= form_tag('/restaurants', method: :get) do %>
+      <%= form_tag('/restaurants', method: :get) do %>
 
-      <%= label_tag :city %>
-      <%= text_field_tag :city, params[:city], value:@city, list:'cities' %>
-      <datalist id="cities">
-        <option value="Boulder"></option>
-        <option value="Denver"></option>
-      </datalist>
+        <%= label_tag :city %>
+        <%= text_field_tag :city, params[:city], value: @city, list: 'cities' %>
+        <datalist id="cities">
+          <option value="Boulder"></option>
+          <option value="Denver"></option>
+        </datalist>
 
-      <%= submit_tag "GO", class: "btn btn-large btn-primary" %>
-    <% end %>
+        <%= submit_tag "GO", class: "btn btn-large btn-primary" %>
+      <% end %>
     </div>
+  </div>
 </div>
 
 

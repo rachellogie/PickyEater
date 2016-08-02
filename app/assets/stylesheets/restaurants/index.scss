@@ -1,0 +1,25 @@
+#restaurants-index {
+
+  .restaurant-square {
+    border: 2px solid darkgrey;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    height: 300px;
+    margin-bottom: 30px;
+  }
+
+  .boulder {
+    background: image-url('boulder-colorful.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .denver {
+    background: yellow;
+  }
+
+}

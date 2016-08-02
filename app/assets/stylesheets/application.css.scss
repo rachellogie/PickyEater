@@ -10,13 +10,6 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require 'masonry/basic'
-*= require 'masonry/centered'
-*= require 'masonry/fluid'
-*= require 'masonry/gutters'
-*= require 'masonry/infinitescroll'
-*= require 'masonry/right-to-left'
-*= require 'masonry/transitions'
  *= require_tree .
  *= require_self
  */
@@ -26,6 +19,12 @@
 
 html, body, .main-image {
   height: 100%;
+}
+
+
+//move this
+#google-map {
+  width: 800px; height: 400px; border: 1px solid black;
 }
 
 

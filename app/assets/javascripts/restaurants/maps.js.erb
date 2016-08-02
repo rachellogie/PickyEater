@@ -5,7 +5,6 @@ jQuery(function () {
 });
 
 function initMap() {
-
   var restaurants = $('#google-map').data('restaurants');
 
   var mapDiv = document.getElementById('google-map');
@@ -14,7 +13,10 @@ function initMap() {
     zoom: 13
   });
   for (i = 0; i < restaurants.length; i++) {
-    var contentString = "<div>" + restaurants[i].name + "<div>";
+    var contentString = "<div>" + restaurants[i].name + "<div/>";
+    if(restaurants[i].gluten_free) {
+      contentString += '<div><%= image_tag "green-check.png" %> 100\% gluten-free</div>';
+    }
 
     var myinfowindow = new google.maps.InfoWindow({
       content: contentString

@@ -9,7 +9,8 @@ class RestaurantsController < ApplicationController
     @city = params[:city]
     #focus the map on city, Restaurant.near city or something, look at geocoder
     @restaurants = Restaurant.near(@city + ', CO, US', 20)
-
+    puts "!!!!!!!"
+    puts @restaurants.inspect
   end
 
 

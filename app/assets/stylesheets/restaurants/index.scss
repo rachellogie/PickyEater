@@ -1,4 +1,17 @@
+@import "mixins";
+
+
 #restaurants-index {
+
+  @include full-background;
+
+  &.boulder {
+    background: image-url('boulder-colorful.png') no-repeat center center fixed;
+  }
+
+  &.denver {
+    background: image-url('denver.jpg') no-repeat center center fixed;
+  }
 
   .restaurant-square {
     border: 2px solid darkgrey;
@@ -10,20 +23,10 @@
     margin-bottom: 30px;
   }
 
-  .boulder {
-    background: image-url('boulder-colorful.png') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-
-  .denver {
-    background: yellow;
-  }
-
   #google-map {
     height: 400px;
   }
 
 }
+
+

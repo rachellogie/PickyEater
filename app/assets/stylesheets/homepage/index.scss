@@ -1,3 +1,5 @@
+@import "mixins";
+
 #homepage-index {
 
   .tagline {
@@ -8,12 +10,9 @@
     1px 1px 0 #000;
   }
 
-  .main-image {
-    background: image-url('friends_eating.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+
+  @include full-background;
+  background: image-url('friends_eating.jpg') no-repeat center center fixed;
+
 
 }

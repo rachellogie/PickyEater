@@ -1,6 +1,4 @@
-<!--change the background image depending on the search city-->
-<div class="container-fluid <%= @search_city == 'Boulder' ? 'boulder' : 'denver' %>">
-
+<div class="container-fluid">
 
   <div class="container">
     <div class="row">
@@ -12,11 +10,11 @@
 
 
         <% if @view == 'map' %>
-        <h2><%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
-          <% else %>
+          <h2><%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
+        <% else %>
           <h2><%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %></h2>
 
-      <% end %>
+        <% end %>
 
       </div>
     </div>
@@ -53,7 +51,6 @@
 
 
 </div>
-
 
 
 

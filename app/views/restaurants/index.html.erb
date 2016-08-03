@@ -1,45 +1,62 @@
-
+<!--change the background image depending on the search city-->
 <div class="container-fluid <%= @search_city == 'Boulder' ? 'boulder' : 'denver' %>">
 
 
   <div class="container">
-  <div class="row">
+    <div class="row">
 
-    <div class="col-xs-12">
-    <h1>Restaurants near <%= @search_city %></h1>
-      <h2>Only show 100% gluten free, local farms, 100% vegetarian</h2>
-      <h2><%= link_to "Map View", maps_restaurants_path(city: @search_city) %></h2>
+      <div class="col-xs-12">
+        <h1>Restaurants near <%= @search_city %></h1>
 
-<!--change the background image depending on the search city-->
+        <h2>Only show 100% gluten free, local farms, 100% vegetarian</h2>
+
+
+        <% if @view == 'map' %>
+        <h2><%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
+          <% else %>
+          <h2><%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %></h2>
+
+      <% end %>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="container">
+
+    <div class="row">
+      <% if @view == 'map' %>
+        <%= content_tag "div", id: "google-map", class: "col-xs-12", data: {restaurants: @restaurants} do %>
+        <% end %>
+      <% else %>
+        <% @restaurants.each do |r| %>
+          <div class="col-xs-12 col-md-4">
+            <div class="col-md-12 restaurant-square">
+              <h1><%= r.name %></h1>
+              <h4>Play riveting piece on synthesizer keyboard all of a sudden cat goes crazy, so white cat sleeps on a
+                black shirt or if it fits, i sits, rub face on everything.</h4>
+              <% if r.gluten_free? %>
+                <p>  <%= image_tag "green-check.png" %>
+                  100% gluten free</p>
+              <% end %>
+
+            </div>
+
+          </div>
+        <% end %>
+
+      <% end %>
     </div>
   </div>
 
-    </div>
-
-
-
-<div class="container">
-
-<div class="row">
-
-<% @restaurants.each do |r| %>
-    <div class="col-xs-12 col-md-4">
-      <div class="col-md-12 restaurant-square">
-        <h1><%= r.name %></h1>
-        <h4>Play riveting piece on synthesizer keyboard all of a sudden cat goes crazy, so white cat sleeps on a black shirt or if it fits, i sits, rub face on everything.</h4>
-        <% if r.gluten_free? %>
-          <p>  <%= image_tag "green-check.png" %>
-        100% gluten free</p>
-        <% end %>
-
-      </div>
-
-    </div>
-<% end %>
-
 
 </div>
-</div>
 
 
-</div>
+
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgueZbJjJgWjbwQcdKrXtN-7YQcROO5NI&callback=initMap">
+</script>

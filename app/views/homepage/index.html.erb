@@ -9,6 +9,7 @@
 
         <%= label_tag :city %>
         <%= text_field_tag :city, params[:city], value: @city, list: 'cities' %>
+        <%= hidden_field_tag :view, 'list' %>
         <datalist id="cities">
           <option value="Boulder"></option>
           <option value="Denver"></option>

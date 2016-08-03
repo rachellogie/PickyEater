@@ -33,8 +33,7 @@
           <div class="col-xs-12 col-md-4">
             <div class="col-md-12 restaurant-square">
               <h1><%= r.name %></h1>
-              <h4>Play riveting piece on synthesizer keyboard all of a sudden cat goes crazy, so white cat sleeps on a
-                black shirt or if it fits, i sits, rub face on everything.</h4>
+              <h4><%= r.description %></h4>
               <% if r.gluten_free? %>
                 <p>  <%= image_tag "green-check.png" %>
                   100% gluten free</p>

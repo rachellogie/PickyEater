@@ -1,23 +1,25 @@
-  <div class="container-fluid">
-    <div class="row">
+<div class="container-fluid">
+  <div class="row">
 
-      <h1 class="tagline text-center">Know where your food comes from.</h1>
+    <div class="col-xs-12 col-md-3 text-justify">
+      <h1 class="tagline">Get picky</h1>
 
-      <h2>Find restaurants in: </h2>
-      <%= form_tag('/restaurants', method: :get) do %>
+      <h3 class="tagline-blurb">Find restaurants that fit with your health-conscious lifestyle in</h3>
+      <%= form_tag('/restaurants', method: :get, class: 'form-inline') do %>
 
-        <%= label_tag :city %>
-        <%= text_field_tag :city, params[:city], value: @city, list: 'cities' %>
+        <%= text_field_tag :city, params[:city], value: @city, placeholder: 'Boulder or Denver atm', list: 'cities', class: 'form-control input-lg wide' %>
         <%= hidden_field_tag :view, 'list' %>
         <datalist id="cities">
           <option value="Boulder"></option>
           <option value="Denver"></option>
         </datalist>
 
-        <%= submit_tag "GO", class: "btn btn-large btn-primary" %>
+        <%= submit_tag "GO", class: "btn btn-large btn-primary input-lg" %>
       <% end %>
     </div>
+
   </div>
+</div>
 
 
 

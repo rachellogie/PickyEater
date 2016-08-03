@@ -3,14 +3,13 @@
 
 #restaurants-index {
 
-  @include full-background;
 
   &.boulder {
-    background: image-url('boulder-colorful.png') no-repeat center center fixed;
+    @include full-background('boulder.jpg');
   }
 
   &.denver {
-    background: image-url('denver.jpg') no-repeat center center fixed;
+    @include full-background('denver.jpg');
   }
 
   .restaurant-square {
@@ -18,7 +17,7 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
     height: 300px;
     margin-bottom: 30px;
   }

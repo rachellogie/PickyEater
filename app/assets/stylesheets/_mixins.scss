@@ -1,5 +1,5 @@
-@mixin full-background {
-  height: 100%;
+@mixin full-background($url) {
+  background: image-url($url) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

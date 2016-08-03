@@ -6,13 +6,13 @@
       <div class="col-xs-12">
         <h1>Restaurants near <%= @search_city %></h1>
 
-        <h2>Only show 100% gluten free, local farms, 100% vegetarian</h2>
+        <h2>Only show 100% gluten free, etc. options go here</h2>
 
-
+        <h2><%= link_to "Search again", root_path %> |
         <% if @view == 'map' %>
-          <h2><%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
+          <%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
         <% else %>
-          <h2><%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %></h2>
+          <%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %></h2>
 
         <% end %>
 

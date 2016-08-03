@@ -13,6 +13,13 @@
     width: 81%;
   }
 
+  .front-btn {
+    background-color: #224136;
+    &:hover {
+      background-color: #6E8964;
+    }
+  }
+
   @include full-background('simple-food.jpeg');
 
 }

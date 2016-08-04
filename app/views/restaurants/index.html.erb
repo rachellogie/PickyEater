@@ -9,14 +9,14 @@
         <h2>Only show 100% gluten free, etc. options go here</h2>
 
         <h2><%= link_to "Search again", root_path %> |
-        <% if @view == 'map' %>
-          <%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
-        <% else %>
-          <%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %></h2>
+          <% if @view == 'map' %>
+            <%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
+          <% else %>
+            <%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %></h2>
 
-        <% end %>
+          <% end %>
 
-      </div>
+          </div>
     </div>
 
   </div>
@@ -31,15 +31,16 @@
       <% else %>
         <% @restaurants.each do |r| %>
           <div class="col-xs-12 col-md-4">
-            <div class="col-md-12 restaurant-square">
-              <h1><%= r.name %></h1>
-              <h4><%= r.description %></h4>
-              <% if r.gluten_free? %>
-                <p>  <%= image_tag "green-check.png" %>
-                  100% gluten free</p>
-              <% end %>
-
-            </div>
+            <%= link_to restaurant_path(r) do %>
+              <div class="col-md-12 restaurant-square">
+                <h1><%= r.name %></h1>
+                <h4><%= r.description %></h4>
+                <% if r.gluten_free? %>
+                  <p>  <%= image_tag "green-check.png" %>
+                    100% gluten free</p>
+                <% end %>
+              </div>
+            <% end %>
 
           </div>
         <% end %>
@@ -54,5 +55,5 @@
 
 
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgueZbJjJgWjbwQcdKrXtN-7YQcROO5NI&callback=initMap">
+        src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_KEY']%>&callback=initMap">
 </script>

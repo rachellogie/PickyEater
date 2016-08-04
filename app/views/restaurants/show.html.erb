@@ -1,0 +1,17 @@
+<h1><%= @restaurant.name %></h1>
+<h2><%= @restaurant.description %></h2>
+
+
+<p>
+<% if @restaurant.gluten_free? %>
+
+  <%= image_tag 'green-check.png' %> 100% gluten free
+
+<% end %>
+
+</p>
+
+<p>
+  Pull in stuff from google api: star rating, photo?, description
+  Then put tags for vegan restaurant, 100% vegetarian, partner farms etc
+</p>

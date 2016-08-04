@@ -38,7 +38,7 @@ r.save!
 r = Restaurant.new(name: 'Linger', address: "2030 W 30th Ave, Denver, CO 80211", description: "This old mortuary is now a lively restaurant with a rooftop lounge & global small plates.")
 r.save!
 
-r = Restaurant.new(name: 'Duo', address: "2413 W 32nd Ave, Denver, CO 80211")
+r = Restaurant.new(name: 'Duo', address: "2413 W 32nd Ave, Denver, CO 80211", description: "Creative local farm-to-fork New American cuisine in a warm, rustic, continually packed space.")
 r.save!
 
 r = Restaurant.new(name: 'Root Down', address: "1600 W 33rd Ave, Denver, CO 80211", description: "A converted filling station is an artful, high-energy venue for creative American small plates.")

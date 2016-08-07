@@ -1,0 +1,19 @@
+<%= current_user.email %>'s favorite restaurants
+
+
+<% current_user.favorites.each do |fave|%>
+  <% r = fave.restaurant %>
+    <div class="col-xs-12 col-md-4">
+      <%= link_to restaurant_path(r) do %>
+        <div class="col-md-12 restaurant-square">
+          <h1><%= r.name %></h1>
+          <h4><%= r.description %></h4>
+          <% if r.gluten_free? %>
+            <p>  <%= image_tag "green-check.png" %>
+              100% gluten free</p>
+          <% end %>
+        </div>
+      <% end %>
+
+    </div>
+<% end %>

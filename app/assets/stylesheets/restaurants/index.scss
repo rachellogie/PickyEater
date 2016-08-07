@@ -1,7 +1,7 @@
 @import "mixins";
 
 
-#restaurants-index {
+#restaurants-index{
 
 
   &.boulder {
@@ -13,13 +13,7 @@
   }
 
   .restaurant-square {
-    border: 2px solid darkgrey;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.9);
-    height: 300px;
-    margin-bottom: 30px;
+    @include r-square;
   }
 
   #google-map {

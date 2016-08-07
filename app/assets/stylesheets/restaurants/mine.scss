@@ -1,0 +1,10 @@
+@import "mixins";
+
+#restaurants-mine {
+
+  @include full-background('simple-food.jpeg');
+
+  .restaurant-square {
+    @include r-square();
+  }
+}

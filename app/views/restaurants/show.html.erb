@@ -2,6 +2,13 @@
 <h2><%= @restaurant.description %></h2>
 
 
+<% if @restaurant.is_user_favorite?(current_user.id) %>
+  <%= link_to "Un-favorite", kill_restaurant_favorites_path(@restaurant), method: :post %>
+<% else %>
+<h3><%= link_to "Mark as favorite", restaurant_favorites_path(@restaurant), method: :create %></h3>
+<% end %>
+
+
 <p>
 <% if @restaurant.gluten_free? %>
 
@@ -13,5 +20,5 @@
 
 <p>
   Pull in stuff from google api: star rating, photo?, description
-  Then put tags for vegan restaurant, 100% vegetarian, partner farms etc
+  Then put tags for vegan restaurant, 100% vegetarian, partner farms, gluten free etc
 </p>

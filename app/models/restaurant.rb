@@ -5,4 +5,8 @@ class Restaurant < ActiveRecord::Base
 
   geocoded_by :address
   after_validation :geocode
+
+  def is_user_favorite?(user_id)
+    Favorite.exists?(restaurant_id: self.id, user_id: user_id)
+  end
 end

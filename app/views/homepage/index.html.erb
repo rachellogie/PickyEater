@@ -18,6 +18,18 @@
       <% end %>
     </div>
 
+    <div class="pull-right">
+      <% if user_signed_in? %>
+      Signed in as <%= current_user.email %>
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <%= link_to "My restaurants", mine_restaurants_path %>
+        <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+      <%= link_to "Sign up", new_user_registration_path %>
+
+        <% end %>
+    </div>
+
   </div>
 </div>
 

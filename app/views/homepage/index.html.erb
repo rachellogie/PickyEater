@@ -1,10 +1,10 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
 
-    <div class="col-xs-12 col-md-3 text-justify">
+    <div class="col-xs-12 col-md-4 text-justify">
       <h1 class="tagline">Get picky</h1>
 
-      <h3 class="tagline-blurb">Find restaurants that fit with your health-conscious lifestyle in</h3>
+      <h3 class="tagline-blurb">Find restaurants that fit your health-conscious lifestyle in</h3>
       <%= form_tag('/restaurants', method: :get, class: 'form-inline') do %>
 
         <%= text_field_tag :city, params[:city], value: @city, placeholder: 'Boulder or Denver atm', list: 'cities', class: 'form-control input-lg wide' %>
@@ -16,18 +16,6 @@
 
         <%= submit_tag "GO", class: "btn btn-large btn-primary input-lg front-btn" %>
       <% end %>
-    </div>
-
-    <div class="pull-right">
-      <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <%= link_to "My restaurants", mine_restaurants_path %>
-        <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-
-        <% end %>
     </div>
 
   </div>

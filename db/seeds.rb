@@ -28,10 +28,10 @@ r.save!
 r = Restaurant.new(name: 'Centro', address: "950 Pearl St, Boulder, CO 80302", description: "Imaginative Pan-Latin fare in a happening spot with happy-hour deals & occasional live music.")
 r.save!
 
-r = Restaurant.new(name: 'Chautaquah', address: "900 Baseline Rd, Boulder, CO 80302", description: "1898 tradition known for Flatiron views from the wraparound porch, plus classic American cooking.")
+r = Restaurant.new(name: 'Native Foods Cafe', veggie: true, address: "1675 29th St #1272, Boulder, CO 80301", description: "Chain for creative, Californian-style vegan fare, including mock-meat dishes, ordered at a counter..")
 r.save!
 
-r = Restaurant.new(name: 'Leaf', address: "2010 16th St, Boulder, CO 80302", description: "Hip, compact locale that features eclectic vegetarian, vegan & gluten-free dishes plus organic wine.")
+r = Restaurant.new(name: 'Leaf', veggie: true, address: "2010 16th St, Boulder, CO 80302", description: "Hip, compact locale that features eclectic vegetarian, vegan & gluten-free dishes plus organic wine.")
 r.save!
 
 #Denver

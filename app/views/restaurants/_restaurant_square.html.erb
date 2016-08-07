@@ -1,0 +1,16 @@
+<div class="col-xs-12 col-md-4">
+  <%= link_to restaurant_path(r) do %>
+    <div class="col-md-12 restaurant-square">
+      <h1><%= r.name %></h1>
+      <h4><%= r.description %></h4>
+      <% if r.gluten_free? %>
+        <p>  <%= image_tag "gluten-free.jpeg" %>
+          100% gluten free</p>
+      <% end %>
+      <% if r.veggie? %>
+        <p>  <%= image_tag "veggie.png" %>
+          100% Vegetarian</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

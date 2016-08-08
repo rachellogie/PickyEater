@@ -1,27 +1,46 @@
-<h1><%= @restaurant.name %></h1>
-<h2><%= @restaurant.description %></h2>
+<div class="container">
+  <div class="row">
+
+    <h1><%= @restaurant.name %></h1>
+  </div>
+  <div class="row">
+    <h2><%= @restaurant.description %></h2>
+
+  </div>
 
 
+  <div class="row">
 
-<%= link_to "Search restaurants in #{@restaurant.city}", restaurants_path(city: @restaurant.city) %>
+    <p>
+      <% if @restaurant.gluten_free? %>
 
-<% if @restaurant.is_user_favorite?(current_user.id) %>
-  <%= link_to "Un-favorite", kill_restaurant_favorites_path(@restaurant), method: :post %>
-<% else %>
-<h3><%= link_to "Mark as favorite", restaurant_favorites_path(@restaurant), method: :create %></h3>
-<% end %>
+        <%= image_tag 'gluten-free.jpeg' %> 100% gluten free
 
+      <% end %>
 
-<p>
-<% if @restaurant.gluten_free? %>
+      <% if @restaurant.veggie? %>
 
-  <%= image_tag 'green-check.png' %> 100% gluten free
+        <%= image_tag 'veggie.png' %> 100% vegetarian
 
-<% end %>
+      <% end %>
 
-</p>
+    </p>
 
-<p>
-  Pull in stuff from google api: star rating, photo?, description
-  Then put tags for vegan restaurant, 100% vegetarian, partner farms, gluten free etc
-</p>
+  </div>
+
+  <div class="row">
+
+    <% if @restaurant.is_user_favorite?(current_user.id) %>
+      <h3><%= link_to "Un-favorite", kill_restaurant_favorites_path(@restaurant), method: :post %></h3>
+    <% else %>
+      <h3><%= link_to "Mark as favorite", restaurant_favorites_path(@restaurant), method: :create %></h3>
+    <% end %>
+
+  </div>
+
+  <p>
+    Pull in stuff from google api: star rating, photo?, description
+    Then put tags for vegan restaurant, 100% vegetarian, partner farms, gluten free etc
+  </p>
+
+</div>

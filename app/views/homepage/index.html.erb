@@ -7,7 +7,8 @@
       <h3 class="tagline-blurb">Find restaurants that fit your health-conscious lifestyle in</h3>
       <%= form_tag('/restaurants', method: :get, class: 'form-inline') do %>
 
-        <%= text_field_tag :city, params[:city], value: @city, placeholder: 'Boulder or Denver atm', list: 'cities', class: 'form-control input-lg wide' %>
+        <!--value would be city in the future-->
+        <%= text_field_tag :city, params[:city], placeholder: 'Boulder or Denver atm', list: 'cities', class: 'form-control input-lg wide' %>
         <%= hidden_field_tag :view, 'list' %>
         <datalist id="cities">
           <option value="Boulder"></option>

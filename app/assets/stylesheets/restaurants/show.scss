@@ -1,0 +1,6 @@
+@import "mixins";
+
+#restaurants-show {
+  @include full-background('food.jpeg');
+
+}

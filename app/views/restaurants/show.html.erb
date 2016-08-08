@@ -2,6 +2,9 @@
 <h2><%= @restaurant.description %></h2>
 
 
+
+<%= link_to "Search restaurants in #{@restaurant.city}", restaurants_path(city: @restaurant.city) %>
+
 <% if @restaurant.is_user_favorite?(current_user.id) %>
   <%= link_to "Un-favorite", kill_restaurant_favorites_path(@restaurant), method: :post %>
 <% else %>

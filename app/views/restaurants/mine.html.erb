@@ -1,6 +1,16 @@
-<%= current_user.email %>'s favorite restaurants
+<div class="container">
 
 
-<% current_user.favorites.each do |fave| %>
-  <%= render 'restaurants/restaurant_square', r: fave.restaurant %>
-<% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="text-center"><%= current_user.email %>'s Favorite Restaurants</h1>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <% current_user.favorites.each do |fave| %>
+      <%= render 'restaurants/restaurant_square', r: fave.restaurant %>
+    <% end %>
+  </div>
+</div>

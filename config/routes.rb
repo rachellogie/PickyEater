@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       get 'mine'
     end
 
+    resources :notes, only: :create
+
     resources :favorites, only: :create do
       collection do
         post 'kill'

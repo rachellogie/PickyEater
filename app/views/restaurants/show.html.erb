@@ -1,43 +1,77 @@
 <div class="container">
   <div class="row">
+    <div class="col-xs-12">
+      <hr>
 
-    <h1><%= @restaurant.name %></h1>
+      <h1 class="text-center"><%= @restaurant.name %></h1>
+
+      <hr>
+      <% if user_signed_in? %>
+
+        <% if @restaurant.is_user_favorite?(current_user.id) %>
+          <h3><%= link_to "Un-favorite", kill_restaurant_favorites_path(@restaurant), method: :post %></h3>
+        <% else %>
+          <h3><%= link_to "Mark as favorite", restaurant_favorites_path(@restaurant), method: :create %></h3>
+        <% end %>
+
+      <% end %>
+
+
+    </div>
   </div>
-  <div class="row">
-    <h2><%= @restaurant.description %></h2>
-
-  </div>
-
 
   <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <%= image_tag "simple-food.jpeg", class: "col-xs-12" %>
+    </div>
+    <div class="col-xs-12 col-md-4">
 
-    <p>
+      <h3><%= @restaurant.description %></h3>
+    </div>
+
+
+    <div class="col-xs-12 col-md-4">
+
       <% if @restaurant.gluten_free? %>
 
-        <%= image_tag 'gluten-free.jpeg' %> 100% gluten free
+        <h3><%= image_tag 'gluten-free.jpeg' %> 100% gluten free</h3>
 
       <% end %>
 
       <% if @restaurant.veggie? %>
 
-        <%= image_tag 'veggie.png' %> 100% vegetarian
+        <h3><%= image_tag 'veggie.png' %> 100% vegetarian</h3>
 
       <% end %>
 
-    </p>
-
+    </div>
   </div>
-
+  <hr>
   <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h4>Notes about this restaurant</h4>
 
-    <% if @restaurant.is_user_favorite?(current_user.id) %>
-      <h3><%= link_to "Un-favorite", kill_restaurant_favorites_path(@restaurant), method: :post %></h3>
-    <% else %>
-      <h3><%= link_to "Mark as favorite", restaurant_favorites_path(@restaurant), method: :create %></h3>
-    <% end %>
 
+      <% @restaurant.notes.each do |note| %>
+        <p>
+          <%= note.content %>
+
+        </p>
+      <% end %>
+
+    </div>
+    <h4></h4>
+
+    <div class="col-xs-12 col-md-6">
+      <%= form_for [@restaurant, Note.new] do |f| %>
+        <%= f.text_area :content, class: "form-control", placeholder: "Add a note..." %>
+        <%= f.submit class: "btn btn-default pull-right" %>
+      <% end %>
+      <h3 class="alert-warning"><%= flash.notice %></h3>
+
+    </div>
   </div>
-
+  <hr>
   <p>
     Pull in stuff from google api: star rating, photo?, description
     Then put tags for vegan restaurant, 100% vegetarian, partner farms, gluten free etc

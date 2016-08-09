@@ -3,6 +3,8 @@ class Restaurant < ActiveRecord::Base
   validates :name, presence: true
   validates :address, presence: true
 
+  has_many :notes
+
   geocoded_by :address
   after_validation :geocode
 

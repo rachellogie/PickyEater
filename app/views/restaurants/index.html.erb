@@ -1,39 +1,29 @@
-<div class="container-fluid">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Restaurants near <%= @search_city %></h1>
 
-  <div class="container">
-    <div class="row">
+      <h2><%= link_to "Search again", root_path %> |
+        <% if @view == 'map' %>
+          <%= link_to "List View", restaurants_path(city: @search_city, view: "list") %>
+        <% else %>
+          <%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %>
 
-      <div class="col-xs-12">
-        <h1>Restaurants near <%= @search_city %></h1>
-
-        <h2>Only show 100% gluten free, etc. options go here</h2>
-
-        <h2><%= link_to "Search again", root_path %> |
-          <% if @view == 'map' %>
-            <%= link_to "List View", restaurants_path(city: @search_city, view: "list") %></h2>
-          <% else %>
-            <%= link_to "Map View", restaurants_path(city: @search_city, view: "map") %></h2>
-
-          <% end %>
-          </div>
+        <% end %>
+        | Sort by gf etc. would go here </h2>
     </div>
-
   </div>
 
 
-  <div class="container-fluid">
-
-    <div class="row">
-      <% if @view == 'map' %>
-        <%= content_tag "div", id: "google-map", class: "col-xs-12", data: {restaurants: @restaurants} do %>
-        <% end %>
-      <% else %>
-        <% @restaurants.each do |restaurant| %>
-          <%= render 'restaurants/restaurant_square', r: restaurant %>
-        <% end %>
-
+  <div class="row">
+    <% if @view == 'map' %>
+      <%= content_tag "div", id: "google-map", class: "col-xs-12 col-md-10 col-md-offset-1", data: {restaurants: @restaurants} do %>
       <% end %>
-    </div>
+    <% else %>
+      <% @restaurants.each do |restaurant| %>
+        <%= render 'restaurants/restaurant_square', r: restaurant %>
+      <% end %>
+    <% end %>
   </div>
 
 

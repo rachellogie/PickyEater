@@ -1,4 +1,5 @@
 @import "mixins";
+@import "variables";
 
 #restaurants-mine {
 
@@ -6,5 +7,9 @@
 
   .restaurant-square {
     @include r-square();
+  }
+
+  @media screen and (max-width: $break-small) {
+    @include full-background('food.jpeg');
   }
 }

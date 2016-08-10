@@ -6,6 +6,20 @@
       <h1 class="text-center"><%= @restaurant.name %></h1>
 
       <hr>
+
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-4">
+      <h3></h3>
+      <%= image_tag "simple-food.jpeg", class: "col-xs-12" %>
+    </div>
+    <div class="col-xs-12 col-md-4">
+
+      <h3><%= @restaurant.description %></h3>
       <% if user_signed_in? %>
 
         <% if @restaurant.is_user_favorite?(current_user.id) %>
@@ -15,18 +29,6 @@
         <% end %>
 
       <% end %>
-
-
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <%= image_tag "simple-food.jpeg", class: "col-xs-12" %>
-    </div>
-    <div class="col-xs-12 col-md-4">
-
-      <h3><%= @restaurant.description %></h3>
     </div>
 
 
@@ -67,7 +69,7 @@
         <%= f.text_area :content, class: "form-control", placeholder: "Add a note..." %>
         <%= f.submit class: "btn btn-default pull-right" %>
       <% end %>
-      <h3 class="alert-warning"><%= flash.notice %></h3>
+      <h3 class="alert-warning"><%= flash.alert %></h3>
 
     </div>
   </div>

@@ -6,7 +6,7 @@ class NotesController < ApplicationController
     if @note.save
       redirect_to restaurant_path(@restaurant)
     else
-      flash[:notice] = "You have to write something"
+      flash[:alert] = "You have to write something"
       redirect_to restaurant_path(@restaurant)
     end
   end
